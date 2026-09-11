@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17100e" />
+    <meta
+      name="description"
+      content="An interactive exhibition game about the dishes that complete a Vietnamese family meal tray."
+    />
+    <title>Build the Tray · Omachi Exhibition</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Exhibition header">
+      <a class="brand-lockup" href="./" aria-label="Omachi exhibition home">
+        <span class="brand-mark">O</span>
+        <span>
+          <strong>OMACHI</strong>
+          <small>LEARNING FROM NATURE</small>
+        </span>
+      </a>
+      <div class="header-context">
+        <span class="context-dot"></span>
+        <span>INTERACTIVE EXHIBITION</span>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro-column" aria-labelledby="page-title">
+        <div class="eyebrow"><span>01</span> THE TRAY CHALLENGE</div>
+        <h1 id="page-title">Build a meal<br /><em>that blooms.</em></h1>
+        <p class="intro-copy">
+          A Vietnamese family meal is a small circle of balance: something braised,
+          something fresh, something shared. Can you find the three dishes that belong
+          on this tray?
+        </p>
+
+        <div class="fact-strip" aria-label="Game facts">
+          <div><strong>10</strong><span>dishes to explore</span></div>
+          <div><strong>3</strong><span>belong on the tray</span></div>
+          <div><strong>4</strong><span>rice bowls already set</span></div>
+        </div>
+
+        <figure class="physical-reference">
+          <img
+            src="./assets/lacquer-tray.png"
+            alt="A round dark lacquer tray with four small bowls of white rice"
+          />
+          <figcaption>
+            <span class="caption-kicker">LOOK CLOSER</span>
+            <span>The rice is already waiting. The shared meal starts with what you add.</span>
+          </figcaption>
+        </figure>
+
+        <p class="micro-note">
+          <span class="micro-line"></span>
+          Tap a dish to place it on the virtual tray.
+        </p>
+      </section>
+
+      <section class="challenge-card" aria-labelledby="challenge-title">
+        <div class="challenge-topline">
+          <div>
+            <span class="eyebrow eyebrow-light"><span>02</span> YOUR TURN</span>
+            <h2 id="challenge-title">Complete the Vietnamese tray</h2>
+          </div>
+          <div class="round-label">ROUND <strong>01</strong></div>
+        </div>
+
+        <div class="game-instructions">
+          <div class="instruction-number">3</div>
+          <p><strong>Choose three dishes</strong><br /><span>that make this family meal feel complete.</span></p>
+          <div class="progress-wrap" aria-label="Selection progress">
+            <div class="progress-label"><span id="selectionCount">0</span> / 3 CHOSEN</div>
+            <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" aria-label="Dishes chosen">
+              <span id="progressFill"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tray-stage" id="trayStage">
+          <img class="tray-background" src="./assets/lacquer-tray.png" alt="" aria-hidden="true" />
+          <div class="tray-shade" aria-hidden="true"></div>
+          <div class="tray-title">
+            <span>YOUR TRAY</span>
+            <small>4 × BOWL OF WHITE RICE</small>
+          </div>
+          <div class="tray-slots" aria-live="polite" aria-label="Selected dishes">
+            <div class="tray-slot slot-one" data-slot="0">
+              <span class="slot-placeholder">01</span>
+              <span class="slot-text">Choose a dish</span>
+            </div>
+            <div class="tray-slot slot-two" data-slot="1">
+              <span class="slot-placeholder">02</span>
+              <span class="slot-text">Choose a dish</span>
+            </div>
+            <div class="tray-slot slot-three" data-slot="2">
+              <span class="slot-placeholder">03</span>
+              <span class="slot-text">Choose a dish</span>
+            </div>
+          </div>
+          <div class="rice-badge"><span>✦</span> FOUR BOWLS SET</div>
+        </div>
+
+        <div class="dish-heading">
+          <div>
+            <span class="eyebrow eyebrow-light"><span>03</span> THE DISHES</span>
+            <p>Some are familiar. Only three complete this tray.</p>
+          </div>
+          <button class="text-button" id="resetButton" type="button">Reset selections <span>↻</span></button>
+        </div>
+
+        <div class="dish-grid" id="dishGrid" aria-label="Dishes to choose from">
+          <button class="dish-card" type="button" data-index="0">
+            <span class="dish-icon icon-fish">🐟</span>
+            <span class="dish-copy"><strong>Cá kho tộ</strong><small>Caramelised fish in clay pot</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="dish-card" type="button" data-index="1">
+            <span class="dish-icon icon-soup">🍲</span>
+            <span class="dish-copy"><strong>Canh chua</strong><small>Vietnamese sweet-sour soup</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="dish-card" type="button" data-index="2">
+            <span class="dish-icon icon-greens">🥬</span>
+            <span class="dish-copy"><strong>Rau luộc</strong><small>Boiled greens with kho quẹt</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="dish-card" type="button" data-index="3">
+            <span class="dish-icon icon-roll">🥢</span>
+            <span class="dish-copy"><strong>Gỏi cuốn</strong><small>Fresh spring rolls</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="dish-card" type="button" data-index="4">
+            <span class="dish-icon icon-noodle">🍜</span>
+            <span class="dish-copy"><strong>Bún bò Huế</strong><small>Spicy beef noodle soup</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="dish-card" type="button" data-index="5">
+            <span class="dish-icon icon-sushi">🍣</span>
+            <span class="dish-copy"><strong>Sushi</strong><small>Japanese rice rolls</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="dish-card" type="button" data-index="6">
+            <span class="dish-icon icon-pizza">🍕</span>
+            <span class="dish-copy"><strong>Pizza</strong><small>Italian baked classic</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="dish-card" type="button" data-index="7">
+            <span class="dish-icon icon-taco">🌮</span>
+            <span class="dish-copy"><strong>Tacos</strong><small>Mexican street food</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="dish-card" type="button" data-index="8">
+            <span class="dish-icon icon-padthai">🍳</span>
+            <span class="dish-copy"><strong>Pad Thai</strong><small>Thai stir-fried noodles</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="dish-card" type="button" data-index="9">
+            <span class="dish-icon icon-croissant">🥐</span>
+            <span class="dish-copy"><strong>Croissant</strong><small>French buttery pastry</small></span>
+            <span class="dish-check" aria-hidden="true">＋</span>
+          </button>
+        </div>
+
+        <div class="action-row">
+          <p class="selection-hint" id="selectionHint" aria-live="polite">Pick a dish to start building.</p>
+          <button class="primary-button" id="checkButton" type="button" disabled>
+            Check my tray <span>→</span>
+          </button>
+        </div>
+
+        <div class="result-card" id="resultCard" hidden aria-live="polite">
+          <div class="result-icon" id="resultIcon">✦</div>
+          <div class="result-copy">
+            <span class="result-kicker" id="resultKicker">MEAL COMPLETE</span>
+            <h3 id="resultTitle">Three dishes, one shared table.</h3>
+            <p id="resultText">A balanced Vietnamese tray begins with a little of everything—and becomes meaningful when people gather around it.</p>
+          </div>
+          <button class="result-action" id="resultAction" type="button">Play again ↻</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>3, 2, 1 — BLOOM</span>
+      <span>OMACHI TAM HOA HOT POT · EXHIBITION CONCEPT</span>
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
